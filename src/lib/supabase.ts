@@ -68,6 +68,14 @@ export interface About {
   updated_at: string;
 }
 
+export interface ThemePreference {
+  id: string;
+  user_session: string;
+  theme: 'light' | 'dark';
+  created_at: string;
+  updated_at: string;
+}
+
 // Real-time subscription helpers
 export const subscribeToTable = (
   table: string,

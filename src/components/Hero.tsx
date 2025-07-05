@@ -55,7 +55,7 @@ Let's harness the power of data to shape tomorrow's innovation—together.`;
   const paragraphs = displayContent.split('\n\n').filter(p => p.trim());
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-24 lg:pt-0 bg-white" id="about">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-24 lg:pt-0 bg-white dark:bg-gray-900 transition-colors duration-300" id="about">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
           {/* Main Hero Content */}
@@ -66,7 +66,7 @@ Let's harness the power of data to shape tomorrow's innovation—together.`;
             className="text-center lg:text-left w-full order-1"
           >
             {/* Main Heading */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-black mb-4 md:mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-black dark:text-white mb-4 md:mb-6 leading-tight">
               Hello, I'm{' '}
               <span className="text-gradient block md:inline">
                 Vaibhav
@@ -84,30 +84,30 @@ Let's harness the power of data to shape tomorrow's innovation—together.`;
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-xl flex items-center justify-center mb-2 md:mb-3 glass-effect-light border-2 border-black"> 
-                  <Database className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 text-black" />
+                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-xl flex items-center justify-center mb-2 md:mb-3 glass-effect-light border-2 border-black dark:border-white"> 
+                  <Database className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 text-black dark:text-white" />
                 </div>
-                <span className="text-black text-xs md:text-sm lg:text-base font-semibold">Data Science</span>
+                <span className="text-black dark:text-white text-xs md:text-sm lg:text-base font-semibold">Data Science</span>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-xl flex items-center justify-center mb-2 md:mb-3 glass-effect-light border-2 border-black">
-                  <Code2 className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 text-black" />
+                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-xl flex items-center justify-center mb-2 md:mb-3 glass-effect-light border-2 border-black dark:border-white">
+                  <Code2 className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 text-black dark:text-white" />
                 </div>
-                <span className="text-black text-xs md:text-sm lg:text-base font-semibold">Development</span>
+                <span className="text-black dark:text-white text-xs md:text-sm lg:text-base font-semibold">Development</span>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-xl flex items-center justify-center mb-2 md:mb-3 glass-effect-light border-2 border-black">
-                  <LineChart className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 text-black" />
+                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-xl flex items-center justify-center mb-2 md:mb-3 glass-effect-light border-2 border-black dark:border-white">
+                  <LineChart className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 text-black dark:text-white" />
                 </div>
-                <span className="text-black text-xs md:text-sm lg:text-base font-semibold">Analytics</span>
+                <span className="text-black dark:text-white text-xs md:text-sm lg:text-base font-semibold">Analytics</span>
               </motion.div>
             </div>
           </motion.div>
@@ -119,12 +119,12 @@ Let's harness the power of data to shape tomorrow's innovation—together.`;
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full order-2 mt-6 lg:mt-0"
           >
-            <div className="glass-effect p-4 md:p-6 lg:p-8 card-hover border-2 border-black"> 
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black mb-4 md:mb-6">About Me</h3>
+            <div className="glass-effect p-4 md:p-6 lg:p-8 card-hover border-2 border-black dark:border-white"> 
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white mb-4 md:mb-6">About Me</h3>
               
               {isLoading ? (
                 <div className="flex items-center justify-center py-8">
-                  <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-6 h-6 border-2 border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
                 </div>
               ) : (
                 <div className="space-y-3 md:space-y-4 lg:space-y-5 text-secondary leading-relaxed">
@@ -136,7 +136,7 @@ Let's harness the power of data to shape tomorrow's innovation—together.`;
                       <p 
                         key={index} 
                         className={`text-sm md:text-base lg:text-lg ${
-                          isCallToAction ? 'text-black font-bold' : ''
+                          isCallToAction ? 'text-black dark:text-white font-bold' : ''
                         }`}
                       >
                         {paragraph}

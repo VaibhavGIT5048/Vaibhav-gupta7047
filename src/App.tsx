@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import FloatingAdminButton from './components/FloatingAdminButton';
 import AdminPanel from './components/AdminPanel';
 import AuthModal from './components/AuthModal';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { isAuthenticated } from './utils/auth';
 
 function App() {
@@ -38,35 +39,37 @@ function App() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-white"
-    >
-      <Navbar onAdminClick={handleAdminClick} />
-      <Hero />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      
-      {/* Auth Modal */}
-      <AuthModal
-        isOpen={showAuth}
-        onClose={() => setShowAuth(false)}
-        onAuthenticate={handleAuthSuccess}
-      />
-
-      {/* Admin Panel */}
-      {(authenticated || isAuthenticated()) && (
-        <AdminPanel
-          isOpen={showAdminPanel}
-          onClose={() => setShowAdminPanel(false)}
-          onDataUpdate={handleDataUpdate}
+    <ThemeProvider>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300"
+      >
+        <Navbar onAdminClick={handleAdminClick} />
+        <Hero />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Contact />
+        
+        {/* Auth Modal */}
+        <AuthModal
+          isOpen={showAuth}
+          onClose={() => setShowAuth(false)}
+          onAuthenticate={handleAuthSuccess}
         />
-      )}
-    </motion.div>
+
+        {/* Admin Panel */}
+        {(authenticated || isAuthenticated()) && (
+          <AdminPanel
+            isOpen={showAdminPanel}
+            onClose={() => setShowAdminPanel(false)}
+            onDataUpdate={handleDataUpdate}
+          />
+        )}
+      </motion.div>
+    </ThemeProvider>
   );
 }
 

@@ -54,10 +54,10 @@ export default function Experience() {
 
   if (isLoading) {
     return (
-      <section className="py-12 sm:py-16 lg:py-20 bg-white" id="experience">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900 transition-colors duration-300" id="experience">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-12">
-            <div className="w-8 h-8 border-2 border-black border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <div className="w-8 h-8 border-2 border-black dark:border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
             <p className="text-secondary">Loading experiences...</p>
           </div>
         </div>
@@ -66,13 +66,13 @@ export default function Experience() {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white" id="experience">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900 transition-colors duration-300" id="experience">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-black mb-8 sm:mb-12 lg:mb-16"
+          className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-8 sm:mb-12 lg:mb-16"
         >
           Experience
         </motion.h2>
@@ -81,7 +81,7 @@ export default function Experience() {
           {/* Professional Experience */}
           {professionalExperiences.length > 0 && (
             <div className="mb-8 sm:mb-12">
-              <h3 className="text-xl sm:text-2xl font-bold text-black mb-6 sm:mb-8">Professional Experience</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-6 sm:mb-8">Professional Experience</h3>
               <div className="space-y-4 sm:space-y-6">
                 {professionalExperiences.map((experience, index) => (
                   <motion.div
@@ -89,24 +89,24 @@ export default function Experience() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="glass-effect p-4 sm:p-6 hover:border-black transition-all duration-300 card-hover border-2 border-light"
+                    className="glass-effect p-4 sm:p-6 hover:border-black dark:hover:border-white transition-all duration-300 card-hover border-2 border-light dark:border-gray-700"
                   >
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4 gap-3">
                       <div className="flex-1">
-                        <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
+                        <h4 className="text-lg sm:text-xl font-bold text-black dark:text-white mb-2">
                           {experience.role}
                         </h4>
-                        <p className="text-black font-semibold mb-2">
+                        <p className="text-black dark:text-white font-semibold mb-2">
                           {experience.organization}
                         </p>
                       </div>
                       <div className="flex flex-col lg:items-end text-sm text-secondary gap-1">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 flex-shrink-0 text-black" />
+                          <Calendar className="w-4 h-4 flex-shrink-0 text-black dark:text-white" />
                           <span className="break-words font-medium">{experience.period}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 flex-shrink-0 text-black" />
+                          <MapPin className="w-4 h-4 flex-shrink-0 text-black dark:text-white" />
                           <span className="break-words font-medium">{experience.location}</span>
                         </div>
                       </div>
@@ -123,7 +123,7 @@ export default function Experience() {
           {/* Leadership Experience */}
           {leadershipExperiences.length > 0 && (
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-black mb-6 sm:mb-8">Leadership & Extracurricular</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-6 sm:mb-8">Leadership & Extracurricular</h3>
               <div className="space-y-4 sm:space-y-6">
                 {leadershipExperiences.map((experience, index) => (
                   <motion.div
@@ -131,24 +131,24 @@ export default function Experience() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: (professionalExperiences.length + index) * 0.1 }}
-                    className="glass-effect p-4 sm:p-6 hover:border-black transition-all duration-300 card-hover border-2 border-light"
+                    className="glass-effect p-4 sm:p-6 hover:border-black dark:hover:border-white transition-all duration-300 card-hover border-2 border-light dark:border-gray-700"
                   >
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4 gap-3">
                       <div className="flex-1">
-                        <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
+                        <h4 className="text-lg sm:text-xl font-bold text-black dark:text-white mb-2">
                           {experience.role}
                         </h4>
-                        <p className="text-black font-semibold mb-2">
+                        <p className="text-black dark:text-white font-semibold mb-2">
                           {experience.organization}
                         </p>
                       </div>
                       <div className="flex flex-col lg:items-end text-sm text-secondary gap-1">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 flex-shrink-0 text-black" />
+                          <Calendar className="w-4 h-4 flex-shrink-0 text-black dark:text-white" />
                           <span className="break-words font-medium">{experience.period}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 flex-shrink-0 text-black" />
+                          <MapPin className="w-4 h-4 flex-shrink-0 text-black dark:text-white" />
                           <span className="break-words font-medium">{experience.location}</span>
                         </div>
                       </div>

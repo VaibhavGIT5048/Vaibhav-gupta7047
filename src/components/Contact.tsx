@@ -7,7 +7,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-soft-gray" id="contact">
+    <section className="py-12 sm:py-16 lg:py-20 bg-soft-gray dark:bg-gray-800 transition-colors duration-300" id="contact">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,21 +15,21 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-8 sm:mb-12 lg:mb-16">
             Contact
           </h2>
 
           {/* Contact Information */}
-          <div className="glass-effect p-6 sm:p-8 mb-8 card-hover border-2 border-black">
+          <div className="glass-effect p-6 sm:p-8 mb-8 card-hover border-2 border-black dark:border-white">
             
             <div className="space-y-6 mb-8">
               <div className="flex items-center justify-center text-secondary">
-                <MapPin className="w-5 h-5 mr-3 text-black flex-shrink-0" />
+                <MapPin className="w-5 h-5 mr-3 text-black dark:text-white flex-shrink-0" />
                 <span className="text-sm sm:text-base font-semibold">Dwarka, New Delhi, India</span>
               </div>
               
               <div className="flex items-center justify-center text-secondary">
-                <Mail className="w-5 h-5 mr-3 text-black flex-shrink-0" />
+                <Mail className="w-5 h-5 mr-3 text-black dark:text-white flex-shrink-0" />
                 <span className="text-sm sm:text-base font-semibold">vwork825@gmail.com</span>
               </div>
             </div>
