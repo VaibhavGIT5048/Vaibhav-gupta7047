@@ -13,6 +13,7 @@
   --border-light: #E0E0E0;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.2);
+  --text-secondary: #666666;
 }
 
 .dark {
@@ -26,6 +27,7 @@
   --border-light: #333333;
   --shadow-light: rgba(255, 255, 255, 0.1);
   --shadow-medium: rgba(255, 255, 255, 0.2);
+  --text-secondary: #B0B0B0;
 }
 
 body {
@@ -207,7 +209,7 @@ select:focus-visible {
 }
 
 .text-secondary {
-  color: var(--medium-gray);
+  color: var(--text-secondary);
 }
 
 .text-accent {
