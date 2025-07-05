@@ -388,16 +388,16 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="w-full max-w-6xl h-[95vh] sm:h-[90vh] rounded-lg overflow-hidden border-2 border-black flex flex-col bg-white"
+        className="w-full max-w-6xl h-[95vh] sm:h-[90vh] rounded-lg overflow-hidden border-2 border-black dark:border-white flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-3 sm:p-6 border-b-2 border-black flex-shrink-0">
+        <div className="flex items-center justify-between p-3 sm:p-6 border-b-2 border-black dark:border-white flex-shrink-0">
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center glass-effect-light border-2 border-black">
-              <Code className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center glass-effect-light border-2 border-black dark:border-white">
+              <Code className="w-4 h-4 sm:w-5 sm:h-5 text-black dark:text-white" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-black">Admin Panel</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-black dark:text-white">Admin Panel</h2>
               <p className="text-xs sm:text-sm text-secondary hidden sm:block">Centralized content management</p>
             </div>
           </div>
@@ -405,14 +405,14 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
             <motion.button
               onClick={handleLogout}
               whileHover={{ scale: 1.05 }}
-              className="btn-secondary flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 text-black hover:text-white transition-colors text-xs sm:text-sm rounded-lg"
+              className="btn-secondary flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 text-black dark:text-white hover:text-white dark:hover:text-black transition-colors text-xs sm:text-sm rounded-lg"
             >
               <LogOut className="w-3 h-3 sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">Logout</span>
             </motion.button>
             <button
               onClick={onClose}
-              className="text-black hover:text-secondary transition-colors"
+              className="text-black dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
@@ -420,7 +420,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b-2 border-black flex-shrink-0 overflow-x-auto">
+        <div className="flex border-b-2 border-black dark:border-white flex-shrink-0 overflow-x-auto bg-white dark:bg-gray-900">
           {[
             { id: 'about', label: 'About', icon: User },
             { id: 'experience', label: 'Experience', icon: Briefcase },
@@ -433,8 +433,8 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
               onClick={() => setActiveTab(id as TabType)}
               className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-bold transition-colors border-b-4 whitespace-nowrap ${
                 activeTab === id
-                  ? 'text-black border-black bg-light-gray'
-                  : 'text-secondary border-transparent hover:text-black hover:bg-light-gray'
+                  ? 'text-black dark:text-white border-black dark:border-white bg-light-gray dark:bg-gray-800'
+                  : 'text-secondary border-transparent hover:text-black dark:hover:text-white hover:bg-light-gray dark:hover:bg-gray-800'
               }`}
             >
               <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -444,10 +444,10 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
         </div>
 
         {/* Content - Now with proper scrolling */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6 scrollbar-thin scrollbar-track-light scrollbar-thumb-dark">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6 scrollbar-thin scrollbar-track-light scrollbar-thumb-dark bg-white dark:bg-gray-900">
           {isLoading ? (
             <div className="flex items-center justify-center h-64">
-              <div className="w-8 h-8 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-8 h-8 border-2 border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
             </div>
           ) : (
             <>
@@ -455,13 +455,13 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
               {activeTab === 'about' && (
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
-                    <h3 className="text-base sm:text-lg font-bold text-black">About Me Content</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-black dark:text-white">About Me Content</h3>
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                       {hasAboutChanges && (
                         <motion.button
                           onClick={handleResetAbout}
                           whileHover={{ scale: 1.05 }}
-                          className="btn-secondary flex items-center gap-2 px-3 sm:px-4 py-2 text-black rounded-lg text-sm"
+                          className="btn-secondary flex items-center gap-2 px-3 sm:px-4 py-2 text-black dark:text-white rounded-lg text-sm"
                         >
                           <RotateCcw className="w-4 h-4" />
                           Reset
@@ -488,16 +488,16 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                     </div>
                   </div>
 
-                  <div className="glass-effect p-4 sm:p-6 border-2 border-black">
+                  <div className="glass-effect p-4 sm:p-6 border-2 border-black dark:border-white">
                     <div className="mb-4">
-                      <label className="block text-sm font-bold text-black mb-2">
+                      <label className="block text-sm font-bold text-black dark:text-white mb-2">
                         About Me Content
                       </label>
                       <textarea
                         value={aboutForm}
                         onChange={(e) => setAboutForm(e.target.value)}
                         rows={12}
-                        className="w-full px-3 sm:px-4 py-3 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm leading-relaxed"
+                        className="w-full px-3 sm:px-4 py-3 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm leading-relaxed"
                         placeholder="Write about yourself, your background, skills, and aspirations..."
                       />
                     </div>
@@ -509,9 +509,9 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
-                          className="mb-4 p-3 rounded-lg border-2 border-green-500 bg-green-50"
+                          className="mb-4 p-3 rounded-lg border-2 border-green-500 bg-green-50 dark:bg-green-900/20"
                         >
-                          <p className="text-green-600 text-sm font-semibold">About content updated successfully!</p>
+                          <p className="text-green-600 dark:text-green-400 text-sm font-semibold">About content updated successfully!</p>
                         </motion.div>
                       )}
                       
@@ -520,9 +520,9 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
-                          className="mb-4 p-3 rounded-lg border-2 border-red-500 bg-red-50"
+                          className="mb-4 p-3 rounded-lg border-2 border-red-500 bg-red-50 dark:bg-red-900/20"
                         >
-                          <p className="text-red-600 text-sm font-semibold">Failed to update about content. Please try again.</p>
+                          <p className="text-red-600 dark:text-red-400 text-sm font-semibold">Failed to update about content. Please try again.</p>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -545,7 +545,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
               {activeTab === 'experience' && (
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
-                    <h3 className="text-base sm:text-lg font-bold text-black">Experience Management</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-black dark:text-white">Experience Management</h3>
                     <motion.button
                       onClick={() => setEditingItem('new-experience')}
                       whileHover={{ scale: 1.05 }}
@@ -563,9 +563,9 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="glass-effect p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-black"
+                        className="glass-effect p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-black dark:border-white"
                       >
-                        <h4 className="text-black font-bold mb-4 text-sm sm:text-base">
+                        <h4 className="text-black dark:text-white font-bold mb-4 text-sm sm:text-base">
                           {editingItem === 'new-experience' ? 'Add New Experience' : 'Edit Experience'}
                         </h4>
                         
@@ -575,35 +575,35 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                             placeholder="Role/Position"
                             value={experienceForm.role}
                             onChange={(e) => setExperienceForm({...experienceForm, role: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="text"
                             placeholder="Organization"
                             value={experienceForm.organization}
                             onChange={(e) => setExperienceForm({...experienceForm, organization: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="text"
                             placeholder="Period (e.g., Jan 2023 - Present)"
                             value={experienceForm.period}
                             onChange={(e) => setExperienceForm({...experienceForm, period: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="text"
                             placeholder="Location"
                             value={experienceForm.location}
                             onChange={(e) => setExperienceForm({...experienceForm, location: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                         </div>
                         
                         <select
                           value={experienceForm.type}
                           onChange={(e) => setExperienceForm({...experienceForm, type: e.target.value as 'professional' | 'leadership'})}
-                          className="w-full px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-4 border-2 border-black glass-effect text-sm"
+                          className="w-full px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white mb-4 border-2 border-black dark:border-white glass-effect text-sm"
                         >
                           <option value="professional">Professional</option>
                           <option value="leadership">Leadership</option>
@@ -614,7 +614,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           value={experienceForm.description}
                           onChange={(e) => setExperienceForm({...experienceForm, description: e.target.value})}
                           rows={4}
-                          className="w-full px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-4 border-2 border-black glass-effect text-sm"
+                          className="w-full px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white mb-4 border-2 border-black dark:border-white glass-effect text-sm"
                         />
                         
                         <div className="flex flex-col sm:flex-row gap-3">
@@ -627,7 +627,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           </button>
                           <button
                             onClick={cancelEditing}
-                            className="btn-secondary flex items-center gap-2 px-4 py-2 text-black rounded-lg text-sm"
+                            className="btn-secondary flex items-center gap-2 px-4 py-2 text-black dark:text-white rounded-lg text-sm"
                           >
                             <Cancel className="w-4 h-4" />
                             Cancel
@@ -642,30 +642,30 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                     {experiences.map((experience) => (
                       <div
                         key={experience.id}
-                        className="glass-effect p-3 sm:p-4 border-2 border-light hover:border-black transition-all duration-300"
+                        className="glass-effect p-3 sm:p-4 border-2 border-light dark:border-gray-700 hover:border-black dark:hover:border-white transition-all duration-300"
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                              <h4 className="text-black font-bold text-sm sm:text-base truncate">{experience.role}</h4>
-                              <span className="text-xs px-2 py-1 rounded-full text-black border-2 border-black glass-effect-accent font-bold w-fit">
+                              <h4 className="text-black dark:text-white font-bold text-sm sm:text-base truncate">{experience.role}</h4>
+                              <span className="text-xs px-2 py-1 rounded-full text-black dark:text-white border-2 border-black dark:border-white glass-effect-accent font-bold w-fit">
                                 {experience.type}
                               </span>
                             </div>
-                            <p className="text-black font-semibold text-xs sm:text-sm mb-1 truncate">{experience.organization}</p>
+                            <p className="text-black dark:text-white font-semibold text-xs sm:text-sm mb-1 truncate">{experience.organization}</p>
                             <p className="text-secondary text-xs sm:text-sm mb-2">{experience.period} • {experience.location}</p>
                             <p className="text-secondary text-xs sm:text-sm line-clamp-3">{experience.description}</p>
                           </div>
                           <div className="flex gap-1 sm:gap-2 ml-2 sm:ml-4 flex-shrink-0">
                             <button
                               onClick={() => startEditing(experience, 'experience')}
-                              className="p-1.5 sm:p-2 text-black hover:text-secondary transition-colors"
+                              className="p-1.5 sm:p-2 text-black dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors"
                             >
                               <Edit2 className="w-3 h-3 sm:w-4 sm:h-4" />
                             </button>
                             <button
                               onClick={() => handleDeleteExperience(experience.id)}
-                              className="p-1.5 sm:p-2 text-black hover:text-red-500 transition-colors"
+                              className="p-1.5 sm:p-2 text-black dark:text-white hover:text-red-500 transition-colors"
                             >
                               <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                             </button>
@@ -681,7 +681,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
               {activeTab === 'skills' && (
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
-                    <h3 className="text-base sm:text-lg font-bold text-black">Skills Management</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-black dark:text-white">Skills Management</h3>
                     <motion.button
                       onClick={() => setEditingItem('new-skill')}
                       whileHover={{ scale: 1.05 }}
@@ -699,9 +699,9 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="glass-effect p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-black"
+                        className="glass-effect p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-black dark:border-white"
                       >
-                        <h4 className="text-black font-bold mb-4 text-sm sm:text-base">
+                        <h4 className="text-black dark:text-white font-bold mb-4 text-sm sm:text-base">
                           {editingItem === 'new-skill' ? 'Add New Skill' : 'Edit Skill'}
                         </h4>
                         
@@ -711,7 +711,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                             placeholder="Skill Name"
                             value={skillForm.name}
                             onChange={(e) => setSkillForm({...skillForm, name: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="number"
@@ -720,12 +720,12 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                             max="100"
                             value={skillForm.level}
                             onChange={(e) => setSkillForm({...skillForm, level: parseInt(e.target.value) || 0})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <select
                             value={skillForm.type}
                             onChange={(e) => setSkillForm({...skillForm, type: e.target.value as 'technical' | 'soft'})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           >
                             <option value="technical">Technical</option>
                             <option value="soft">Soft Skill</option>
@@ -742,7 +742,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           </button>
                           <button
                             onClick={cancelEditing}
-                            className="btn-secondary flex items-center gap-2 px-4 py-2 text-black rounded-lg text-sm"
+                            className="btn-secondary flex items-center gap-2 px-4 py-2 text-black dark:text-white rounded-lg text-sm"
                           >
                             <Cancel className="w-4 h-4" />
                             Cancel
@@ -757,13 +757,13 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                     {skills.map((skill) => (
                       <div
                         key={skill.id}
-                        className="glass-effect p-3 sm:p-4 border-2 border-light hover:border-black transition-all duration-300"
+                        className="glass-effect p-3 sm:p-4 border-2 border-light dark:border-gray-700 hover:border-black dark:hover:border-white transition-all duration-300"
                       >
                         <div className="flex items-start justify-between mb-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                              <h4 className="text-black font-bold text-sm sm:text-base truncate">{skill.name}</h4>
-                              <span className="text-xs px-2 py-1 rounded-full text-black border-2 border-black glass-effect-accent font-bold w-fit">
+                              <h4 className="text-black dark:text-white font-bold text-sm sm:text-base truncate">{skill.name}</h4>
+                              <span className="text-xs px-2 py-1 rounded-full text-black dark:text-white border-2 border-black dark:border-white glass-effect-accent font-bold w-fit">
                                 {skill.type}
                               </span>
                             </div>
@@ -775,20 +775,20 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                                     style={{ width: `${skill.level}%` }}
                                   />
                                 </div>
-                                <span className="text-black text-xs sm:text-sm font-bold">{skill.level}%</span>
+                                <span className="text-black dark:text-white text-xs sm:text-sm font-bold">{skill.level}%</span>
                               </div>
                             )}
                           </div>
                           <div className="flex gap-1 sm:gap-2 ml-2 sm:ml-4 flex-shrink-0">
                             <button
                               onClick={() => startEditing(skill, 'skills')}
-                              className="p-1.5 sm:p-2 text-black hover:text-secondary transition-colors"
+                              className="p-1.5 sm:p-2 text-black dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors"
                             >
                               <Edit2 className="w-3 h-3 sm:w-4 sm:h-4" />
                             </button>
                             <button
                               onClick={() => handleDeleteSkill(skill.id)}
-                              className="p-1.5 sm:p-2 text-black hover:text-red-500 transition-colors"
+                              className="p-1.5 sm:p-2 text-black dark:text-white hover:text-red-500 transition-colors"
                             >
                               <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                             </button>
@@ -804,7 +804,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
               {activeTab === 'projects' && (
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
-                    <h3 className="text-base sm:text-lg font-bold text-black">Projects Management</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-black dark:text-white">Projects Management</h3>
                     <motion.button
                       onClick={() => setEditingItem('new-project')}
                       whileHover={{ scale: 1.05 }}
@@ -822,9 +822,9 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="glass-effect p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-black"
+                        className="glass-effect p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-black dark:border-white"
                       >
-                        <h4 className="text-black font-bold mb-4 text-sm sm:text-base">
+                        <h4 className="text-black dark:text-white font-bold mb-4 text-sm sm:text-base">
                           {editingItem === 'new-project' ? 'Add New Project' : 'Edit Project'}
                         </h4>
                         
@@ -834,28 +834,28 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                             placeholder="Project Title"
                             value={projectForm.title}
                             onChange={(e) => setProjectForm({...projectForm, title: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="url"
                             placeholder="GitHub URL"
                             value={projectForm.github_url}
                             onChange={(e) => setProjectForm({...projectForm, github_url: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="url"
                             placeholder="Live URL (optional)"
                             value={projectForm.live_url}
                             onChange={(e) => setProjectForm({...projectForm, live_url: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                           <input
                             type="url"
                             placeholder="Image URL (optional)"
                             value={projectForm.image}
                             onChange={(e) => setProjectForm({...projectForm, image: e.target.value})}
-                            className="px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black border-2 border-black glass-effect text-sm"
+                            className="px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white border-2 border-black dark:border-white glass-effect text-sm"
                           />
                         </div>
                         
@@ -864,7 +864,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           value={projectForm.description}
                           onChange={(e) => setProjectForm({...projectForm, description: e.target.value})}
                           rows={3}
-                          className="w-full px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-4 border-2 border-black glass-effect text-sm"
+                          className="w-full px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white mb-4 border-2 border-black dark:border-white glass-effect text-sm"
                         />
                         
                         <input
@@ -872,15 +872,15 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           placeholder="Technologies (comma-separated)"
                           value={projectForm.tech.join(', ')}
                           onChange={(e) => setProjectForm({...projectForm, tech: e.target.value.split(',').map(t => t.trim()).filter(t => t)})}
-                          className="w-full px-3 sm:px-4 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-4 border-2 border-black glass-effect text-sm"
+                          className="w-full px-3 sm:px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white mb-4 border-2 border-black dark:border-white glass-effect text-sm"
                         />
                         
-                        <label className="flex items-center gap-2 text-black mb-4 font-bold text-sm">
+                        <label className="flex items-center gap-2 text-black dark:text-white mb-4 font-bold text-sm">
                           <input
                             type="checkbox"
                             checked={projectForm.featured}
                             onChange={(e) => setProjectForm({...projectForm, featured: e.target.checked})}
-                            className="rounded border-2 border-black"
+                            className="rounded border-2 border-black dark:border-white"
                           />
                           Featured Project
                         </label>
@@ -895,7 +895,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           </button>
                           <button
                             onClick={cancelEditing}
-                            className="btn-secondary flex items-center gap-2 px-4 py-2 text-black rounded-lg text-sm"
+                            className="btn-secondary flex items-center gap-2 px-4 py-2 text-black dark:text-white rounded-lg text-sm"
                           >
                             <Cancel className="w-4 h-4" />
                             Cancel
@@ -910,14 +910,14 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                     {projects.map((project) => (
                       <div
                         key={project.id}
-                        className="glass-effect p-3 sm:p-4 border-2 border-light hover:border-black transition-all duration-300"
+                        className="glass-effect p-3 sm:p-4 border-2 border-light dark:border-gray-700 hover:border-black dark:hover:border-white transition-all duration-300"
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                              <h4 className="text-black font-bold text-sm sm:text-base truncate">{project.title}</h4>
+                              <h4 className="text-black dark:text-white font-bold text-sm sm:text-base truncate">{project.title}</h4>
                               {project.featured && (
-                                <span className="text-xs px-2 py-1 rounded-full text-white bg-black border-2 border-black font-bold w-fit">
+                                <span className="text-xs px-2 py-1 rounded-full text-white bg-black dark:bg-white dark:text-black border-2 border-black dark:border-white font-bold w-fit">
                                   Featured
                                 </span>
                               )}
@@ -927,25 +927,25 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                               {project.tech.slice(0, 3).map((tech, index) => (
                                 <span
                                   key={index}
-                                  className="text-xs px-2 py-1 rounded-full text-black border-2 border-black glass-effect-accent font-bold"
+                                  className="text-xs px-2 py-1 rounded-full text-black dark:text-white border-2 border-black dark:border-white glass-effect-accent font-bold"
                                 >
                                   {tech}
                                 </span>
                               ))}
                               {project.tech.length > 3 && (
-                                <span className="text-xs px-2 py-1 rounded-full text-black border-2 border-black glass-effect-accent font-bold">
+                                <span className="text-xs px-2 py-1 rounded-full text-black dark:text-white border-2 border-black dark:border-white glass-effect-accent font-bold">
                                   +{project.tech.length - 3}
                                 </span>
                               )}
                             </div>
                             <div className="flex gap-2 text-xs sm:text-sm">
                               {project.github_url && (
-                                <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="text-black hover:underline font-semibold">
+                                <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:underline font-semibold">
                                   GitHub
                                 </a>
                               )}
                               {project.live_url && (
-                                <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="text-black hover:underline font-semibold">
+                                <a href={project.live_url} target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:underline font-semibold">
                                   Live Demo
                                 </a>
                               )}
@@ -954,13 +954,13 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           <div className="flex gap-1 sm:gap-2 ml-2 sm:ml-4 flex-shrink-0">
                             <button
                               onClick={() => startEditing(project, 'projects')}
-                              className="p-1.5 sm:p-2 text-black hover:text-secondary transition-colors"
+                              className="p-1.5 sm:p-2 text-black dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors"
                             >
                               <Edit2 className="w-3 h-3 sm:w-4 sm:h-4" />
                             </button>
                             <button
                               onClick={() => handleDeleteProject(project.id)}
-                              className="p-1.5 sm:p-2 text-black hover:text-red-500 transition-colors"
+                              className="p-1.5 sm:p-2 text-black dark:text-white hover:text-red-500 transition-colors"
                             >
                               <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                             </button>
@@ -976,19 +976,19 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
               {activeTab === 'resume' && (
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
-                    <h3 className="text-base sm:text-lg font-bold text-black">Resume Management</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-black dark:text-white">Resume Management</h3>
                   </div>
 
-                  <div className="glass-effect p-4 sm:p-6 border-2 border-black">
+                  <div className="glass-effect p-4 sm:p-6 border-2 border-black dark:border-white">
                     
                     {resumeFile ? (
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center glass-effect-light border-2 border-black flex-shrink-0">
-                            <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center glass-effect-light border-2 border-black dark:border-white flex-shrink-0">
+                            <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h4 className="text-black font-bold text-sm sm:text-base truncate">{resumeFile.filename}</h4>
+                            <h4 className="text-black dark:text-white font-bold text-sm sm:text-base truncate">{resumeFile.filename}</h4>
                             <p className="text-secondary text-xs sm:text-sm">
                               {(resumeFile.file_size / 1024 / 1024).toFixed(2)} MB • 
                               Uploaded {new Date(resumeFile.created_at).toLocaleDateString()}
@@ -1007,7 +1007,7 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                           </a>
                           <button
                             onClick={handleDeleteResume}
-                            className="btn-secondary flex items-center justify-center gap-2 px-3 sm:px-4 py-2 text-black rounded-lg hover:text-red-500 transition-colors text-sm"
+                            className="btn-secondary flex items-center justify-center gap-2 px-3 sm:px-4 py-2 text-black dark:text-white rounded-lg hover:text-red-500 transition-colors text-sm"
                           >
                             <Trash2 className="w-4 h-4" />
                             Delete
@@ -1016,10 +1016,10 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                       </div>
                     ) : (
                       <div className="text-center py-6 sm:py-8">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4 glass-effect-light border-2 border-black">
-                          <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4 glass-effect-light border-2 border-black dark:border-white">
+                          <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-black dark:text-white" />
                         </div>
-                        <h4 className="text-black font-bold mb-2 text-sm sm:text-base">No Resume Uploaded</h4>
+                        <h4 className="text-black dark:text-white font-bold mb-2 text-sm sm:text-base">No Resume Uploaded</h4>
                         <p className="text-secondary text-xs sm:text-sm mb-4 sm:mb-6">Upload a PDF resume to make it available for download</p>
                         
                         <label className="btn-primary inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 text-white rounded-lg cursor-pointer text-sm">
@@ -1037,8 +1037,8 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
                     )}
 
                     {!resumeFile && (
-                      <div className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg border-2 border-black glass-effect">
-                        <h5 className="text-black font-bold mb-2 text-sm">Upload Guidelines</h5>
+                      <div className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg border-2 border-black dark:border-white glass-effect">
+                        <h5 className="text-black dark:text-white font-bold mb-2 text-sm">Upload Guidelines</h5>
                         <ul className="text-secondary text-xs sm:text-sm space-y-1">
                           <li>• Only PDF files are accepted</li>
                           <li>• Maximum file size: 5MB</li>
