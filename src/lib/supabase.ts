@@ -46,6 +46,7 @@ export interface Project {
   live_url?: string;
   tech: string[];
   featured: boolean;
+  category: 'AI/ML' | 'Data Science & Analysis' | 'Case Studies' | 'Web Development' | 'Other';
   created_at: string;
   updated_at: string;
 }
