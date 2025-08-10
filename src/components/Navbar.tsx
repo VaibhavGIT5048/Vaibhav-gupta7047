@@ -63,7 +63,7 @@ export default function Navbar({ onAdminClick }: NavbarProps) {
     };
   }, []);
 
-  const navItems = ['About', 'Experience', 'Skills', 'Projects'];
+  const navItems = ['About', 'Experience', 'Skills', 'Projects', 'Competitions'];
 
   const handleNavClick = (item: string) => {
     setMobileMenuOpen(false);

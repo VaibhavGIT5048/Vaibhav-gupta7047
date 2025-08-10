@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Competitions from './components/Competitions';
 import Contact from './components/Contact';
 import FloatingAdminButton from './components/FloatingAdminButton';
 import AdminPanel from './components/AdminPanel';
@@ -51,6 +52,7 @@ function App() {
         <Experience />
         <Skills />
         <Projects />
+        <Competitions />
         <Contact />
         
         {/* Auth Modal */}

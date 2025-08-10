@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import { X, Plus, Edit2, Trash2, Save, Upload, Download, FileText, User, Briefcase, Code, FolderOpen, Info, Eye, EyeOff, Trophy, Calendar, MapPin, Users, Award, ExternalLink, Image } from 'lucide-react';
   X, 
   Plus, 
   Edit2, 
@@ -22,8 +22,8 @@ import {
   Award,
   Target,
   Layers
-} from 'lucide-react';
-import { 
+import { Experience, Skill, Project, ResumeFile, About, Competition } from '../lib/supabase';
+import {
   Experience, 
   Skill, 
   Project, 
@@ -46,6 +46,7 @@ import {
   getAboutContent,
   updateAboutContent,
   getActiveResume,
+  getCompetitions, createCompetition, updateCompetition, deleteCompetition,
   uploadResume,
   deleteResume
 } from '../utils/supabaseStorage';
@@ -57,7 +58,7 @@ interface AdminPanelProps {
   onDataUpdate: () => void;
 }
 
-type TabType = 'about' | 'experiences' | 'skills' | 'projects' | 'resume';
+type ActiveTab = 'about' | 'experiences' | 'skills' | 'projects' | 'competitions' | 'resume';
 
 const PROJECT_CATEGORIES = [
   'AI/ML',
@@ -101,9 +102,14 @@ export default function AdminPanel({ isOpen, onClose, onDataUpdate }: AdminPanel
 
   // Projects state
   const [projects, setProjects] = useState<Project[]>([]);
+  const [competitions, setCompetitions] = useState<Competition[]>([]);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [newProject, setNewProject] = useState<Partial<Project>>({
     title: '',
+  // Competition states
+  const [editingCompetition, setEditingCompetition] = useState<Competition | null>(null);
+  const [showCompetitionForm, setShowCompetitionForm] = useState(false);
+
     description: '',
     image: '',
     github_url: '',

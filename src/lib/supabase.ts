@@ -77,6 +77,25 @@ export interface ThemePreference {
   updated_at: string;
 }
 
+export interface Competition {
+  id: string;
+  title: string;
+  description: string;
+  event_type: 'hackathon' | 'competition';
+  standing: string;
+  date: string;
+  location: string;
+  organizer: string;
+  team_size: number;
+  technologies: string[];
+  project_url?: string;
+  certificate_url?: string;
+  images: string[];
+  featured: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
 // Real-time subscription helpers
 export const subscribeToTable = (
   table: string,

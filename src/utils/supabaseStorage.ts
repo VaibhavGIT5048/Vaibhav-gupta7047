@@ -1,4 +1,5 @@
 import { supabase, Experience, Skill, Project, ResumeFile, About } from '../lib/supabase';
+import type { Competition } from '../lib/supabase';
 
 // Experience operations
 export const getExperiences = async (): Promise<Experience[]> => {
@@ -489,6 +490,86 @@ export const deleteResume = async (id: string): Promise<boolean> => {
   } catch (error) {
     console.error('Error in deleteResume:', error);
     throw error;
+  }
+};
+
+// Competition operations
+export const getCompetitions = async (): Promise<Competition[]> => {
+  try {
+    const { data, error } = await supabase
+      .from('competitions')
+      .select('*')
+      .order('date', { ascending: false });
+    
+    if (error) {
+      console.error('Error fetching competitions:', error);
+      throw error;
+    }
+    
+    return data || [];
+  } catch (error) {
+    console.error('Error in getCompetitions:', error);
+    return [];
+  }
+};
+
+export const createCompetition = async (competition: Omit<Competition, 'id' | 'created_at' | 'updated_at'>): Promise<Competition | null> => {
+  try {
+    const { data, error } = await supabase
+      .from('competitions')
+      .insert([competition])
+      .select()
+      .single();
+    
+    if (error) {
+      console.error('Error creating competition:', error);
+      throw error;
+    }
+    
+    return data;
+  } catch (error) {
+    console.error('Error in createCompetition:', error);
+    return null;
+  }
+};
+
+export const updateCompetition = async (id: string, updates: Partial<Competition>): Promise<Competition | null> => {
+  try {
+    const { data, error } = await supabase
+      .from('competitions')
+      .update(updates)
+      .eq('id', id)
+      .select()
+      .single();
+    
+    if (error) {
+      console.error('Error updating competition:', error);
+      throw error;
+    }
+    
+    return data;
+  } catch (error) {
+    console.error('Error in updateCompetition:', error);
+    return null;
+  }
+};
+
+export const deleteCompetition = async (id: string): Promise<boolean> => {
+  try {
+    const { error } = await supabase
+      .from('competitions')
+      .delete()
+      .eq('id', id);
+    
+    if (error) {
+      console.error('Error deleting competition:', error);
+      throw error;
+    }
+    
+    return true;
+  } catch (error) {
+    console.error('Error in deleteCompetition:', error);
+    return false;
   }
 };
 
