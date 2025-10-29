@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Edit2, Trash2, Save, Upload, Download, FileText, User, Briefcase, Code, FolderOpen, Info, Eye, EyeOff, Trophy, Calendar, MapPin, Users, Award, ExternalLink, Image } from 'lucide-react';
   X, 
-  Plus, 
-  Edit2, 
-  Trash2, 
-  Save, 
-  Upload, 
-  Download, 
-  FileText, 
-  Briefcase, 
+import { 
+  Experience, 
+  Skill, 
+  Project, 
+  ResumeFile, 
+  About, 
+  Competition,
   Code, 
   User, 
   FolderOpen,
